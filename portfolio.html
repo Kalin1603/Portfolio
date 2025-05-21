@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="bg" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio – Kalin Todorov</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cyan: {
+              DEFAULT: '#00FFFF',
+              '50': '#E0FFFF', '100': '#B3FFFF', '200': '#80FFFF',
+              '300': '#4DFFFF', '400': '#00FFFF', '500': '#00E6E6',
+              '600': '#00CCCC', '700': '#009999', '800': '#006666',
+              '900': '#003333',
+            },
+            gray: {
+                '50': '#F7FAFC', '100': '#EDF2F7', '200': '#E2E8F0',
+                '300': '#CBD5E0', '400': '#A0AEC0', '500': '#718096',
+                '600': '#4A5568', '700': '#2D3748', '800': '#1A202C',
+                '900': '#111827',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'neon-cyan': '0 0 5px theme("colors.cyan.400"), 0 0 10px theme("colors.cyan.500"), 0 0 15px theme("colors.cyan.600")',
+            'neon-cyan-light': '0 0 4px theme("colors.cyan.300"), 0 0 8px theme("colors.cyan.400"), 0 0 12px theme("colors.cyan.500")',
+          },
+          aspectRatio: {
+            '16/9': '16 / 9',
+            '4/3': '4 / 3',
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-gray-900 text-gray-200 antialiased font-sans">
+
+  <div id="tsparticles"></div>
+
+  <nav class="sticky top-0 z-50 bg-gray-900/80 backdrop-blur-md shadow-lg">
+  <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <a href="#home" class="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors">KT</a>
+    <div class="space-x-4 sm:space-x-6 text-sm sm:text-base">
+      <a href="#home" class="text-gray-300 hover:text-cyan-400 transition-colors">About</a>
+      <a href="#projects" class="text-gray-300 hover:text-cyan-400 transition-colors">Projects</a>
+      <a href="#skills" class="text-gray-300 hover:text-cyan-400 transition-colors">Skills</a>
+      <a href="#cv" class="text-gray-300 hover:text-cyan-400 transition-colors">CV</a>
+    </div>
+  </div>
+</nav>
+
+<header id="home" class="relative overflow-hidden py-16 sm:py-20 lg:py-28">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-center">
+      
+      <!-- Лява/Горна част: Снимка, Име, Титла, Социални икони -->
+      <div class="lg:col-span-5 text-center lg:text-left">
+        <div class="mx-auto lg:mx-0 w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-cyan-500 shadow-neon-cyan mb-6">
+          <img src="icons/profile.jpg" alt="Kalin Todorov" class="object-cover w-full h-full">
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-2">
+          <span class="neon-text-main">Kalin Todorov</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-300 mb-6">Web & Software Developer</p>
+        <div class="flex justify-center lg:justify-start space-x-5 mb-10 lg:mb-0">
+          <a href="https://www.linkedin.com/in/k-todorov/" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors transform hover:scale-110 inline-block" aria-label="LinkedIn Profile">
+            <img src="icons/linkedin.svg" alt="LinkedIn" class="w-8 h-8 sm:w-9 sm:h-9"> 
+          </a>
+          <a href="https://github.com/Kalin1603" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors transform hover:scale-110 inline-block" aria-label="GitHub Profile">
+            <img src="icons/github.svg" alt="GitHub" class="w-8 h-8 sm:w-9 sm:h-9"> 
+          </a>
+          <a href="mailto:kalintodorov03@gmail.com" class="text-gray-400 hover:text-cyan-400 transition-colors transform hover:scale-110 inline-block" aria-label="Email Kalin">
+            <img src="icons/email.svg" alt="Email" class="w-8 h-8 sm:w-9 sm:h-9"> 
+          </a>
+        </div>
+      </div>
+
+      <!-- Дясна/Долна част: About Me текст, LinkedIn бутон -->
+      <div class="lg:col-span-7 text-center lg:text-left">
+        <h2 class="text-3xl sm:text-4xl font-bold neon-text-sub mb-6">About Me</h2>
+        <p class="text-lg sm:text-xl text-gray-300 leading-relaxed mb-8">
+          Driven and goal-oriented, I thrive on embracing new challenges and stepping out of my comfort zone. Meeting new people and exchanging ideas energizes me because I believe the best solutions often arise from diverse perspectives and experiences. Always eager to learn and grow, I am motivated by the excitement of what lies ahead.
+        </p>
+        <a href="https://www.linkedin.com/in/k-todorov/" target="_blank"
+           class="inline-flex items-center px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-gray-900 rounded-lg text-lg font-semibold shadow-md hover:shadow-neon-cyan transition-all duration-300 ease-in-out transform hover:scale-105 group">
+          <svg class="w-5 h-5 mr-2.5 text-gray-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
+            <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 53.79-54.3c29.7 0 53.79 24.7 53.79 54.3a53.79 53.79 0 0 1-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+          </svg>
+          Connect with me on LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main class="container mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
+
+        <section id="projects" class="py-12 sm:py-16">
+      <h2 class="text-4xl sm:text-5xl font-bold neon-text-sub mb-12 text-center">Projects</h2>
+      <div class="space-y-16 sm:space-y-20">
+        
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300 hover:shadow-neon-cyan-light">
+          <div class="md:flex">
+            <div class="md:w-2/5 slideshow-container relative aspect-video overflow-hidden bg-gray-700">
+              <img src="https://picsum.photos/seed/chatterbox-slide1/800/450" alt="ChatterBox Project Slide 1" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+              <img src="https://picsum.photos/seed/chatterbox-slide2/800/450" alt="ChatterBox Project Slide 2" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+              <img src="https://picsum.photos/seed/chatterbox-slide3/800/450" alt="ChatterBox Project Slide 3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+            </div>
+            <div class="md:w-3/5 p-4 flex flex-col">
+              <div>
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-2xl font-semibold text-cyan-400 group-hover:text-cyan-300 transition-colors">ChatterBox</h3>
+                  <span class="text-sm text-gray-400 flex-shrink-0 ml-2 mt-1">02/2025 – 04/2025</span>
+                </div>
+                <p class="mt-2 text-gray-300 leading-relaxed text-lg mb-2">Developed a social media web application that includes secure user login, customizable profiles, content posting, and a timed "stories" feature. Incorporates background processing for story lifecycles and a responsive UI.</p>
+                <p class="mt-3 text-base italic text-gray-400">Tech: C#, ASP.NET Core MVC, EF Core, Identity, SQL Server, Background Service, Tailwind CSS, Razor Views, JavaScript.</p>
+              </div>
+              <a href="https://github.com/Kalin1603/ChatterBox" target="_blank"
+                 class="inline-block mt-4 text-cyan-400 font-medium text-sm hover:text-cyan-300 hover:underline transition-colors self-start">
+                View on GitHub <span class="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300 hover:shadow-neon-cyan-light">
+          <div class="md:flex">
+            <div class="md:w-2/5 slideshow-container relative aspect-video overflow-hidden bg-gray-700">
+              <img src="https://picsum.photos/seed/emovie-slide1/800/450" alt="E-Movie Project Slide 1" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+              <img src="https://picsum.photos/seed/emovie-slide2/800/450" alt="E-Movie Project Slide 2" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+              <img src="https://picsum.photos/seed/emovie-slide3/800/450" alt="E-Movie Project Slide 3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+            </div>
+            <div class="md:w-3/5 p-4 flex flex-col">
+              <div>
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-2xl font-semibold text-cyan-400 group-hover:text-cyan-300 transition-colors">E-Movie</h3>
+                  <span class="text-sm text-gray-400 flex-shrink-0 ml-2 mt-1">01/2025 – 02/2025</span>
+                </div>
+                <p class="mt-2 text-gray-300 leading-relaxed text-lg mb-2">Full-stack e-commerce web application offering secure authentication, a shopping cart, and efficient order processing through an intuitive UI.</p>
+                <p class="mt-3 text-base italic text-gray-400">Tech: C#, ASP.NET Core MVC, EF Core, Identity, SQL Server, Bootstrap 5, Repository Pattern, Service Layer.</p>
+              </div>
+              <a href="https://github.com/Kalin1603/E-Movie" target="_blank"
+                 class="inline-block mt-4 text-cyan-400 font-medium text-sm hover:text-cyan-300 hover:underline transition-colors self-start">
+                View on GitHub <span class="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300 hover:shadow-neon-cyan-light">
+          <div class="md:flex">
+            <div class="md:w-2/5 slideshow-container relative aspect-video overflow-hidden bg-gray-700">
+              <img src="https://picsum.photos/seed/eventmanage-slide1/800/450" alt="Event Management Project Slide 1" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+              <img src="https://picsum.photos/seed/eventmanage-slide2/800/450" alt="Event Management Project Slide 2" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+              <img src="https://picsum.photos/seed/eventmanage-slide3/800/450" alt="Event Management Project Slide 3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+            </div>
+            <div class="md:w-3/5 p-4 flex flex-col">
+              <div>
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-2xl font-semibold text-cyan-400 group-hover:text-cyan-300 transition-colors">Event Management</h3>
+                  <span class="text-sm text-gray-400 flex-shrink-0 ml-2 mt-1">12/2024 – 01/2025</span> 
+                </div>
+                <p class="mt-2 text-gray-300 leading-relaxed text-lg mb-2">Led development of an interactive event management platform in a team of three. Focused on improving event scheduling, secure registrations, real-time updates, and automated notifications. Responsible for core architecture and user authentication.</p>
+                <p class="mt-3 text-base italic text-gray-400">Tech: C#, ASP.NET Core MVC, EF Core, SQL Server, HTML, CSS, JavaScript.</p>
+              </div>
+              <a href="https://github.com/Kalin1603/LeetSoft-Practise" target="_blank"
+                 class="inline-block mt-4 text-cyan-400 font-medium text-sm hover:text-cyan-300 hover:underline transition-colors self-start">
+                View on GitHub <span class="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-12 sm:py-16">
+        <h2 class="text-4xl sm:text-5xl font-bold neon-text-sub mb-12 text-center">My Skills</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            
+            <div class="bg-gray-800/70 p-6 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:-translate-y-1 transition-all duration-300 hover:shadow-neon-cyan-light group">
+                <svg class="w-10 h-10 sm:w-12 sm:h-12 mb-4 text-cyan-400 group-hover:text-cyan-300 transition-colors" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m1 7 4.5 4.5L14 3" stroke="currentColor" stroke-linecap="square"/>
+                </svg>
+                <h4 class="text-md sm:text-lg font-semibold text-gray-200 group-hover:text-cyan-300 transition-colors">Problem-solving</h4>
+            </div>
+
+            <div class="bg-gray-800/70 p-6 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:-translate-y-1 transition-all duration-300 hover:shadow-neon-cyan-light group">
+                <svg class="w-10 h-10 sm:w-12 sm:h-12 mb-4 text-cyan-400 group-hover:text-cyan-300 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612" xml:space="preserve" fill="currentColor">
+                    <path d="M265.267 193.788c29.384 0 53.29 23.905 53.29 53.29s-23.905 53.289-53.29 53.289-53.29-23.905-53.29-53.289 23.905-53.29 53.29-53.29"/>
+                    <path d="M67.687 502.479c2.347 27.861 27.491 39.706 69.335 32.992 39.884-6.403 59.89 11.861 65.018 33.857 0 0 1.488 11.778 2.392 25.149.666 9.857 8.833 17.523 18.713 17.523h245.481c10.357 0 18.753-8.396 18.753-18.753v-67.884c0-33.429 3.324-83.053 27.298-109.446C581.11 342.78 617.69 246.881 580.59 150.285 537.435 37.92 416.956-12.325 302.562 2.554c-41.504 5.398-81.94 19.668-116.84 42.917C122.036 87.896 76.575 158.722 69.928 235.523c-1.95 22.526 8.749 49.804 3.363 71.242-1.085 4.339-6.971 24.576-51.079 68.055-10.552 10.402-5.448 28.354 8.998 31.647 19.644 4.479 33.171 7.156 35.203 8.317 0 0 .5 78.505 1.274 87.695M369.23 179.867l3.024-7.339a65 65 0 0 1-5.902-14.197l-7.302-3.04a6.84 6.84 0 0 1-4.21-6.314v-16.8a6.84 6.84 0 0 1 4.21-6.314l7.302-3.041c1.411-5 3.406-9.757 5.901-14.196l-3.024-7.339a6.84 6.84 0 0 1 1.487-7.441l5.94-5.94 5.94-5.94a6.84 6.84 0 0 1 7.442-1.487l7.339 3.024a65 65 0 0 1 14.197-5.902l3.041-7.303a6.84 6.84 0 0 1 6.314-4.21h16.8a6.84 6.84 0 0 1 6.314 4.21l3.041 7.303c5 1.411 9.757 3.406 14.197 5.902l7.339-3.024a6.84 6.84 0 0 1 7.442 1.487l5.94 5.94 5.94 5.94a6.84 6.84 0 0 1 1.487 7.441l-3.024 7.339a65 65 0 0 1 5.901 14.196l7.302 3.041a6.84 6.84 0 0 1 4.21 6.314v16.8a6.84 6.84 0 0 1-4.21 6.314l-7.302 3.041a65 65 0 0 1-5.902 14.196l3.024 7.339a6.84 6.84 0 0 1-1.487 7.441l-5.94 5.94-5.94 5.939a6.84 6.84 0 0 1-7.442 1.487l-7.339-3.024a65 65 0 0 1-14.197 5.901l-3.041 7.303a6.84 6.84 0 0 1-6.314 4.21h-16.8a6.84 6.84 0 0 1-6.314-4.21l-3.041-7.302a65 65 0 0 1-14.197-5.902l-7.339 3.024a6.84 6.84 0 0 1-7.442-1.487l-5.94-5.939-5.94-5.94a6.84 6.84 0 0 1-1.485-7.441m-206.088 55.694a9.38 9.38 0 0 1 5.772-8.656l10.011-4.168a89.2 89.2 0 0 1 8.091-19.464l-4.146-10.062a9.375 9.375 0 0 1 2.039-10.202l8.143-8.144 8.143-8.143a9.38 9.38 0 0 1 10.203-2.039l10.062 4.146a89.2 89.2 0 0 1 19.463-8.091l4.168-10.012a9.38 9.38 0 0 1 8.657-5.772h23.033a9.38 9.38 0 0 1 8.656 5.772l4.169 10.012a89.2 89.2 0 0 1 19.463 8.091l10.062-4.146a9.38 9.38 0 0 1 10.203 2.039l8.143 8.143 8.144 8.144a9.38 9.38 0 0 1 2.039 10.202l-4.146 10.062a89 89 0 0 1 8.091 19.464l10.011 4.168a9.375 9.375 0 0 1 5.772 8.656v23.033a9.38 9.38 0 0 1-5.772 8.656l-10.011 4.168a89.2 89.2 0 0 1-8.091 19.464l4.146 10.061a9.38 9.38 0 0 1-2.039 10.203l-8.143 8.143-8.143 8.143a9.38 9.38 0 0 1-10.202 2.039l-10.062-4.146a89 89 0 0 1-19.464 8.091l-4.169 10.012a9.375 9.375 0 0 1-8.656 5.772H253.75a9.38 9.38 0 0 1-8.656-5.772l-4.168-10.011a89.2 89.2 0 0 1-19.464-8.091l-10.061 4.146a9.38 9.38 0 0 1-10.203-2.039l-8.143-8.143-8.143-8.143a9.38 9.38 0 0 1-2.039-10.203l4.146-10.061a89.2 89.2 0 0 1-8.091-19.464l-10.011-4.168a9.38 9.38 0 0 1-5.772-8.656v-11.516z"/>
+                    <path d="M429.328 101.709c21.432 0 38.869 17.436 38.869 38.869 0 21.432-17.436 38.868-38.869 38.868s-38.869-17.436-38.869-38.868 17.436-38.869 38.869-38.869"/>
+                </svg>
+                <h4 class="text-md sm:text-lg font-semibold text-gray-200 group-hover:text-cyan-300 transition-colors">Logical & Critical thinking</h4>
+            </div>
+
+             <div class="bg-gray-800/70 p-6 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:-translate-y-1 transition-all duration-300 hover:shadow-neon-cyan-light group">
+                <svg class="w-10 h-10 sm:w-12 sm:h-12 mb-4 text-cyan-400 group-hover:text-cyan-300 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve" fill="currentColor">
+                    <path d="M512 234.312V.001H0v234.311h160.683v40.9c0 12.061-9.813 21.873-21.873 21.873h-31.192c-28.833 0-52.29 23.458-52.29 52.29v49.142c0 28.833 23.458 52.29 52.29 52.29h68.273V420.39h-68.273c-12.061 0-21.873-9.813-21.873-21.873v-49.142c0-12.061 9.813-21.873 21.873-21.873h31.192c28.833 0 52.29-23.458 52.29-52.29v-40.9h129.8v40.9c0 28.833 23.458 52.29 52.29 52.29h31.192c12.061 0 21.873 9.813 21.873 21.873v49.142c0 12.061-9.813 21.873-21.873 21.873h-68.273v30.417h68.273c28.833 0 52.29-23.458 52.29-52.29v-49.142c0-28.833-23.458-52.29-52.29-52.29H373.19c-12.061 0-21.873-9.813-21.873-21.873v-40.9zM30.417 203.895V30.419h451.166v173.477H30.417z"/>
+                    <path d="M52.376 151.385h36.703v30.417H52.376zm61.759 0h36.703v30.417h-36.703zm61.757 0h160.217v30.417H175.892zm185.27 0h36.703v30.417h-36.703zm61.757 0h36.703v30.417h-36.703zM52.376 101.947h36.703v30.417H52.376zm61.759 0h36.703v30.417h-36.703zm61.757 0h36.703v30.417h-36.703zm61.756 0h36.703v30.417h-36.703zm61.757 0h36.703v30.417h-36.703zm61.757 0h36.703v30.417h-36.703zm61.757 0h36.703v30.417h-36.703zM52.376 52.51h36.703v30.417H52.376zm61.759 0h36.703v30.417h-36.703zm61.757 0h36.703v30.417h-36.703zm61.756 0h36.703v30.417h-36.703zm61.757 0h36.703v30.417h-36.703zm61.757 0h36.703v30.417h-36.703zm61.757 0h36.703v30.417h-36.703zM256 297.71c-41.609 0-75.462 33.852-75.462 75.462 0 19.924 7.695 38.719 21.666 52.92l.932.947a38.3 38.3 0 0 1 9.408 17.259v24.247c0 23.961 19.494 43.454 43.455 43.454s43.455-19.494 43.455-43.454v-24.247a38.3 38.3 0 0 1 9.393-17.241l.948-.964c13.972-14.202 21.666-32.995 21.666-52.92.001-41.61-33.852-75.463-75.461-75.463m13.04 170.834c0 7.189-5.849 13.037-13.038 13.037s-13.038-5.849-13.038-13.037v-2.132h26.077zm19.373-64.093-.197.197c-8.75 8.719-14.938 19.494-18.035 31.347H241.82c-3.097-11.852-9.285-22.628-18.035-31.347l-.193-.193c-8.151-8.439-12.635-19.533-12.635-31.283 0-24.838 20.207-45.045 45.045-45.045s45.045 20.207 45.045 45.045c-.002 11.75-4.485 22.84-12.634 31.279"/>
+                </svg>
+                <h4 class="text-md sm:text-lg font-semibold text-gray-200 group-hover:text-cyan-300 transition-colors">Software Development</h4>
+            </div>
+            
+            <div class="bg-gray-800/70 p-6 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:-translate-y-1 transition-all duration-300 hover:shadow-neon-cyan-light group">
+                <svg class="w-10 h-10 sm:w-12 sm:h-12 mb-4 text-cyan-400 group-hover:text-cyan-300 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491.813 491.813" xml:space="preserve" fill="currentColor">
+                    <path d="M491.352 170.948 429.774 49.696a4.25 4.25 0 0 0-3.79-2.325H65.829c-.047 0-.093.009-.141.01q-.122.005-.245.017-.285.027-.562.09c-.057.014-.114.021-.17.036a4 4 0 0 0-.699.263c-.021.01-.044.014-.065.024-.034.017-.061.042-.095.06q-.284.149-.542.34-.064.043-.125.089-.284.226-.527.501c-.043.048-.08.1-.121.148a5 5 0 0 0-.327.463q-.055.087-.105.176c-.021.037-.046.071-.065.109L.461 170.948a4.25 4.25 0 0 0 .636 4.773l241.51 267.319a4.25 4.25 0 0 0 3.152 1.401h.001a4.25 4.25 0 0 0 3.152-1.399l241.803-267.319a4.25 4.25 0 0 0 .637-4.775m-36.289 31.519H383.62a4.25 4.25 0 1 0 0 8.5h63.754l-186.93 206.655 106.913-240.499h110.63zm-304.443 73h-47.954l-88.849-98.344h109.162l107.859 240.213-120.493-133.369h40.275a4.25 4.25 0 1 0 0-8.5m-134.033-117.5H87.62a4.25 4.25 0 1 0 0-8.5H20.904L65.776 61.11l53.113 107.514H11.175zm395.526-88.5H303.62a4.25 4.25 0 1 0 0 8.5h104.195l-44.342 87.708L255.939 55.87h163.048zm-246.781 69.5h52.288a4.25 4.25 0 1 0 0-8.5h-43.856l67.889-68.442-.04 106.599H135.916zm136.288 5h28.696l24.146 24.656h-104.35l.04-106.514 71.84 73.357H301.62a4.25 4.25 0 1 0 0 8.501m-60.011 33.156-.092 243.245-109.221-243.245zm8.5 0h107.946l-108.038 243.03zm-123.21-11.48-37.88-76.676h63.601a4.25 4.25 0 1 0 0-8.5h-67.8L72.669 55.87h163.115zm244.609 2.98L425.95 60.94l38.865 76.527H401.62a4.25 4.25 0 1 0 0 8.5h67.511l11.506 22.656z"/>
+                </svg>
+                <h4 class="text-md sm:text-lg font-semibold text-gray-200 group-hover:text-cyan-300 transition-colors">Clean Code</h4>
+            </div>
+
+            <div class="bg-gray-800/70 p-6 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:-translate-y-1 transition-all duration-300 hover:shadow-neon-cyan-light group">
+                <svg class="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400 mb-4 group-hover:text-cyan-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+                <h4 class="text-md sm:text-lg font-semibold text-gray-200 group-hover:text-cyan-300 transition-colors">Attention to Detail</h4>
+            </div>
+
+            <div class="bg-gray-800/70 p-6 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:-translate-y-1 transition-all duration-300 hover:shadow-neon-cyan-light group">
+                <svg class="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400 mb-4 group-hover:text-cyan-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                </svg>
+                <h4 class="text-md sm:text-lg font-semibold text-gray-200 group-hover:text-cyan-300 transition-colors">Team Coordination</h4>
+            </div>
+
+            <div class="bg-gray-800/70 p-6 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:-translate-y-1 transition-all duration-300 hover:shadow-neon-cyan-light group">
+                <svg class="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400 mb-4 group-hover:text-cyan-300 transition-colors" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                </svg>
+                <h4 class="text-md sm:text-lg font-semibold text-gray-200 group-hover:text-cyan-300 transition-colors">Learning & Adaptability</h4>
+            </div>
+            
+            <div class="bg-gray-800/70 p-6 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:-translate-y-1 transition-all duration-300 hover:shadow-neon-cyan-light group">
+                <svg class="w-10 h-10 sm:w-12 sm:h-12 mb-4 text-cyan-400 group-hover:text-cyan-300 transition-colors" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve">
+                    <path fill="currentColor" d="M264.778 132.188h.008l.008.008z"/>
+                    <path fill="currentColor" d="M397.04 291.532c9.927-12.098 21.84-31.151 20.335-51.746L315.137 137.549s-18.518-4.589-40.648.215c-3.202-2.091-6.442-3.996-9.704-5.575-16.569-8.05-33.101-9.875-45.481-9.756-.794 0-1.55.037-2.313.06l-18.963 18.963 2.958-.297a10 10 0 0 0 1.208-.207c.46-.111 7.814-1.809 18.266-1.794 9.371 0 21.151 1.401 32.849 6.227-6.628 3.455-13.174 8.021-19.282 14.13l-64.52 64.519.015.015c-.185.185-.37.341-.556.526-8.755 8.748-9.088 22.715-1.008 31.878.311.348.653.72 1.008 1.075 9.089 9.097 23.842 9.111 32.953 0l35.488-35.488a77.4 77.4 0 0 0 17.91 4.196c7.858.89 15.264.556 21.833-.371 16.02-2.268 23.626-4.67 23.626-4.67l83.646 83.653s.474-.415 1.193-1.075l12.084 12.084c3.15 3.159 4.685 7.213 4.693 11.35-.008 4.122-1.549 8.184-4.7 11.342-3.158 3.144-7.206 4.685-11.335 4.693-4.13-.008-8.185-1.549-11.343-4.693a8.4 8.4 0 0 0-5.916-2.447 8.38 8.38 0 0 0-5.916 2.447 8.4 8.4 0 0 0-2.446 5.916c0 2.201.89 4.351 2.446 5.916 3.151 3.15 4.693 7.206 4.7 11.342-.008 4.122-1.549 8.185-4.707 11.336s-7.213 4.693-11.335 4.707c-4.137-.014-8.184-1.557-11.343-4.707a8.4 8.4 0 0 0-5.915-2.439 8.4 8.4 0 0 0-5.916 2.439 8.44 8.44 0 0 0-2.446 5.923c0 2.194.89 4.352 2.446 5.916 3.15 3.15 4.692 7.206 4.7 11.328-.008 4.136-1.55 8.198-4.7 11.342-3.159 3.158-7.213 4.7-11.343 4.708-4.129-.008-8.184-1.55-11.342-4.708l-7.08-7.072c-.008-.015-.023-.03-.037-.045a8.44 8.44 0 0 0-5.908-2.447 8.39 8.39 0 0 0-8.37 8.37 8.4 8.4 0 0 0 2.454 5.908c3.15 3.158 4.692 7.221 4.7 11.357-.015 4.122-1.557 8.184-4.707 11.335s-7.206 4.693-11.336 4.7c-4.136-.008-8.192-1.549-11.342-4.7l-5.034-5.033 1.742-1.735c9.058-9.059 9.066-23.745.007-32.804s-23.746-9.059-32.804 0l-1.742 1.742-.868-.859c4.463-8.726 3.144-19.631-4.152-26.926-7.294-7.294-18.199-8.614-26.925-4.152l-1.728-1.727c4.463-8.719 3.151-19.624-4.144-26.918-7.294-7.295-18.207-8.614-26.925-4.152l-1.728-1.727c4.463-8.718 3.151-19.624-4.144-26.918-7.302-7.295-18.207-8.614-26.926-4.152l-8.377-8.377-.512-.474c-.074-.059-1.349-1.157-3.306-3.114a99 99 0 0 1-3.714-3.936l-.007-.008-.186-.2.03.037c-4.396-4.938-9.92-12.129-14.012-20.579-2.543-5.249-4.53-10.928-5.501-16.881l-13.759 13.76a84 84 0 0 0 4.211 10.424c5.034 10.349 11.461 18.652 16.576 24.397l.023.045.185.2-.008-.022a121 121 0 0 0 4.337 4.596c1.979 1.972 3.418 3.262 4.026 3.788l7.302 7.303-13.478 13.477c-9.06 9.059-9.052 23.738 0 32.798 9.059 9.058 23.737 9.058 32.804 0-9.067 9.058-9.06 23.745 0 32.804 9.059 9.052 23.737 9.052 32.797 0-9.06 9.052-9.06 23.746 0 32.798 9.066 9.059 23.745 9.059 32.804 0l13.47-13.471-6.709 6.717c-9.066 9.06-9.06 23.738 0 32.797 9.06 9.06 23.731 9.06 32.797 0l6.709-6.716 5.034 5.033a32.68 32.68 0 0 0 23.174 9.601 32.68 32.68 0 0 0 23.167-9.601c5.345-5.345 8.452-12.135 9.326-19.111a32.7 32.7 0 0 0 9.133 1.312 32.73 32.73 0 0 0 23.174-9.608 32.74 32.74 0 0 0 9.601-23.16c0-.615-.059-1.223-.089-1.831.608.03 1.223.081 1.831.081a32.67 32.67 0 0 0 23.166-9.6 32.72 32.72 0 0 0 9.601-23.167c0-.615-.045-1.23-.081-1.838.607.037 1.215.09 1.831.09 8.354 0 16.792-3.218 23.159-9.593a32.7 32.7 0 0 0 9.608-23.174 32.68 32.68 0 0 0-9.593-23.175zM138.565 58.974 0 197.53l57.454 57.462 138.571-138.565zM69.278 205.981c-5.597 5.605-14.678 5.605-20.276 0-5.597-5.59-5.597-14.678 0-20.268 5.597-5.605 14.679-5.605 20.276 0 5.605 5.59 5.605 14.679 0 20.268M373.436 55.593l-57.461 57.453L454.547 251.61 512 194.157zm69.279 147.016c-5.597-5.597-5.597-14.686 0-20.276 5.604-5.605 14.678-5.605 20.283 0 5.597 5.589 5.597 14.678 0 20.276-5.605 5.597-14.679 5.597-20.283 0"/>
+                </svg>
+                <h4 class="text-md sm:text-lg font-semibold text-gray-200 group-hover:text-cyan-300 transition-colors">Supporting Others</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="cv" class="py-16 sm:py-20 text-center">
+      <h2 class="text-4xl sm:text-5xl font-bold neon-text-sub mb-8">Download My CV</h2>
+      <a href="CV.pdf" download
+         class="inline-flex items-center px-10 py-4 bg-cyan-500 hover:bg-cyan-600 text-gray-900 rounded-lg text-xl font-semibold shadow-lg hover:shadow-neon-cyan transition-all duration-300 ease-in-out transform hover:scale-105 group">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 transform transition-transform duration-300 group-hover:rotate-[-5deg] group-hover:scale-110" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        Download CV
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="text-center py-10 mt-16 sm:mt-20 border-t border-gray-700/50">
+    <p class="text-gray-400 text-sm">© <span id="currentYear"></span> Kalin Todorov. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    tsParticles.load("tsparticles", { /* ... tsparticles config ... */ });
+
+    function initSlideshows() {
+      const slideshowContainers = document.querySelectorAll('.slideshow-container');
+
+      slideshowContainers.forEach(container => {
+        const slides = container.querySelectorAll('img');
+        let currentSlideIndex = 0;
+
+        if (slides.length > 0) {
+          slides.forEach(slide => slide.classList.add('opacity-0'));
+          slides[currentSlideIndex].classList.remove('opacity-0');
+          slides[currentSlideIndex].classList.add('opacity-100');
+
+          setInterval(() => {
+            slides[currentSlideIndex].classList.remove('opacity-100');
+            slides[currentSlideIndex].classList.add('opacity-0');
+
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+
+            slides[currentSlideIndex].classList.remove('opacity-0');
+            slides[currentSlideIndex].classList.add('opacity-100');
+          }, 5000); 
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initSlideshows);
+  </script>
+</body>
+</html>
