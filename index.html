@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Kalin Todorov — Full Stack Developer</title>
 
     <meta name="description"
@@ -107,15 +107,8 @@
             </button>
         </div>
 
-        <!-- Mobile menu -->
-        <div id="mobileMenu" class="md:hidden bg-gray-900/95 backdrop-blur-md">
-            <a href="#home" data-nav-link="home" class="mobile-link">About</a>
-            <a href="#projects" data-nav-link="projects" class="mobile-link">Projects</a>
-            <a href="#stack" data-nav-link="stack" class="mobile-link">Stack</a>
-            <a href="#qualities" data-nav-link="qualities" class="mobile-link">Qualities</a>
-            <a href="#strengths" data-nav-link="strengths" class="mobile-link">Strengths</a>
-            <a href="#cv" data-nav-link="cv" class="mobile-link text-cyan-400">CV</a>
-        </div>
+        <!-- Mobile menu (hidden — replaced by bottom sheet nav) -->
+        <div id="mobileMenu" class="md:hidden bg-gray-900/95 backdrop-blur-md" style="display:none"></div>
     </nav>
 
     <!-- ===================== HERO ===================== -->
@@ -608,8 +601,8 @@
                 <div>
                     <p class="kicker mb-3">// let's work together</p>
                     <a href="mailto:kalintodorov03@gmail.com"
-                        class="font-display text-2xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight neon-text-sub hover:text-cyan-300 transition-colors break-all">
-                        kalintodorov03@gmail.com
+                        class="font-display text-[1.35rem] xs:text-2xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight neon-text-sub hover:text-cyan-300 transition-colors break-words">
+                        kalintodorov03<wbr>@gmail.com
                     </a>
                 </div>
                 <div class="flex gap-5 items-center md:pb-2">
@@ -637,31 +630,276 @@
         </div>
     </footer>
 
+    <!-- ===================== BOTTOM SHEET: Navigation ===================== -->
+    <div id="navSheetOverlay" class="bottom-sheet-overlay"></div>
+    <div id="navSheet" class="bottom-sheet bottom-sheet-nav" role="dialog" aria-label="Navigation menu">
+        <div class="bottom-sheet-handle-area" data-sheet-handle>
+            <span class="bottom-sheet-handle"></span>
+        </div>
+        <div class="bottom-sheet-content">
+            <a href="#home" class="sheet-nav-link" data-nav-link="home">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+                About
+            </a>
+            <a href="#projects" class="sheet-nav-link" data-nav-link="projects">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" /></svg>
+                Projects
+            </a>
+            <a href="#stack" class="sheet-nav-link" data-nav-link="stack">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0 4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0-5.571 3-5.571-3" /></svg>
+                Stack
+            </a>
+            <a href="#qualities" class="sheet-nav-link" data-nav-link="qualities">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" /></svg>
+                Qualities
+            </a>
+            <a href="#strengths" class="sheet-nav-link" data-nav-link="strengths">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+                Strengths
+            </a>
+            <div class="sheet-nav-divider"></div>
+            <a href="#cv" class="sheet-nav-link sheet-nav-cv" data-nav-link="cv">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
+                CV
+            </a>
+        </div>
+    </div>
+
+    <!-- ===================== BOTTOM SHEET: Project Detail ===================== -->
+    <div id="projectSheetOverlay" class="bottom-sheet-overlay"></div>
+    <div id="projectSheet" class="bottom-sheet" role="dialog" aria-label="Project details">
+        <div class="bottom-sheet-handle-area" data-sheet-handle>
+            <span class="bottom-sheet-handle"></span>
+        </div>
+        <div id="projectSheetContent" class="bottom-sheet-content">
+            <!-- Filled dynamically by JS -->
+        </div>
+    </div>
+
     <script>
         // Year
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isMobile = () => window.innerWidth < 768;
+        const isCoarse = () => window.matchMedia('(pointer: coarse)').matches;
 
-        // ---------- Mobile menu ----------
+        // ============================================================
+        //  BOTTOM SHEET ENGINE — reusable for any sheet
+        // ============================================================
+        class BottomSheet {
+            constructor(sheetEl, overlayEl, opts = {}) {
+                this.sheet = sheetEl;
+                this.overlay = overlayEl;
+                this.onClose = opts.onClose || null;
+                this.isOpen = false;
+
+                // Drag state
+                this._startY = 0;
+                this._currentY = 0;
+                this._dragging = false;
+
+                // Bind
+                this._onTouchStart = this._onTouchStart.bind(this);
+                this._onTouchMove = this._onTouchMove.bind(this);
+                this._onTouchEnd = this._onTouchEnd.bind(this);
+                this._onOverlayClick = this._onOverlayClick.bind(this);
+                this._onKeydown = this._onKeydown.bind(this);
+
+                // Attach overlay click
+                this.overlay.addEventListener('click', this._onOverlayClick);
+
+                // Attach drag on handle area
+                const handle = this.sheet.querySelector('[data-sheet-handle]');
+                if (handle) {
+                    handle.addEventListener('touchstart', this._onTouchStart, { passive: true });
+                    handle.addEventListener('mousedown', this._onTouchStart);
+                }
+            }
+
+            open() {
+                if (this.isOpen) return;
+                this.isOpen = true;
+                this.sheet.classList.add('open');
+                this.overlay.classList.add('open');
+                document.body.classList.add('sheet-open');
+                document.addEventListener('keydown', this._onKeydown);
+            }
+
+            close() {
+                if (!this.isOpen) return;
+                this.isOpen = false;
+                this.sheet.style.transform = '';
+                this.sheet.classList.remove('open', 'dragging');
+                this.overlay.classList.remove('open');
+                document.body.classList.remove('sheet-open');
+                document.removeEventListener('keydown', this._onKeydown);
+                if (this.onClose) this.onClose();
+            }
+
+            _onOverlayClick() { this.close(); }
+            _onKeydown(e) { if (e.key === 'Escape') this.close(); }
+
+            _getY(e) {
+                return e.touches ? e.touches[0].clientY : e.clientY;
+            }
+
+            _onTouchStart(e) {
+                this._startY = this._getY(e);
+                this._currentY = this._startY;
+                this._dragging = true;
+                this.sheet.classList.add('dragging');
+
+                document.addEventListener('touchmove', this._onTouchMove, { passive: false });
+                document.addEventListener('touchend', this._onTouchEnd);
+                document.addEventListener('mousemove', this._onTouchMove);
+                document.addEventListener('mouseup', this._onTouchEnd);
+            }
+
+            _onTouchMove(e) {
+                if (!this._dragging) return;
+                this._currentY = this._getY(e);
+                const dy = Math.max(0, this._currentY - this._startY);
+                this.sheet.style.transform = `translateY(${dy}px)`;
+                if (e.cancelable) e.preventDefault();
+            }
+
+            _onTouchEnd() {
+                if (!this._dragging) return;
+                this._dragging = false;
+                this.sheet.classList.remove('dragging');
+
+                document.removeEventListener('touchmove', this._onTouchMove);
+                document.removeEventListener('touchend', this._onTouchEnd);
+                document.removeEventListener('mousemove', this._onTouchMove);
+                document.removeEventListener('mouseup', this._onTouchEnd);
+
+                const dy = this._currentY - this._startY;
+                if (dy > 80) {
+                    this.close();
+                } else {
+                    this.sheet.style.transform = '';
+                }
+            }
+        }
+
+        // ============================================================
+        //  NAV BOTTOM SHEET (mobile only)
+        // ============================================================
+        const navSheet = new BottomSheet(
+            document.getElementById('navSheet'),
+            document.getElementById('navSheetOverlay'),
+            {
+                onClose: () => {
+                    const t = document.getElementById('menuToggle');
+                    t.setAttribute('aria-expanded', 'false');
+                    document.getElementById('iconOpen').classList.remove('hidden');
+                    document.getElementById('iconClose').classList.add('hidden');
+                }
+            }
+        );
+
+        // Close nav sheet on link tap
+        document.querySelectorAll('#navSheet .sheet-nav-link').forEach(link => {
+            link.addEventListener('click', () => navSheet.close());
+        });
+
+        // Mobile toggle opens the nav bottom sheet
         (function () {
             const toggle = document.getElementById('menuToggle');
-            const menu = document.getElementById('mobileMenu');
             const iconOpen = document.getElementById('iconOpen');
             const iconClose = document.getElementById('iconClose');
 
-            // Single source of truth for the menu's state so the panel, the
-            // ARIA attribute, and the two icons can never drift out of sync.
-            function setOpen(open) {
-                menu.classList.toggle('open', open);
-                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-                iconOpen.classList.toggle('hidden', open);
-                iconClose.classList.toggle('hidden', !open);
-            }
-            toggle.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
-            // Tapping any link both navigates and closes the menu.
-            menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+            toggle.addEventListener('click', () => {
+                if (navSheet.isOpen) {
+                    navSheet.close();
+                } else {
+                    navSheet.open();
+                    toggle.setAttribute('aria-expanded', 'true');
+                    iconOpen.classList.add('hidden');
+                    iconClose.classList.remove('hidden');
+                }
+            });
         })();
+
+        // ============================================================
+        //  PROJECT BOTTOM SHEET (mobile only)
+        // ============================================================
+        const projectSheet = new BottomSheet(
+            document.getElementById('projectSheet'),
+            document.getElementById('projectSheetOverlay'),
+            {
+                onClose: () => {
+                    // Clear slideshows in sheet
+                    if (projectSheet._sheetInterval) {
+                        clearInterval(projectSheet._sheetInterval);
+                        projectSheet._sheetInterval = null;
+                    }
+                }
+            }
+        );
+        projectSheet._sheetInterval = null;
+
+        function openProjectSheet(article) {
+            const contentEl = document.getElementById('projectSheetContent');
+
+            // Extract data from the article
+            const title = article.querySelector('h3')?.textContent || '';
+            const date = article.querySelector('.font-mono.text-xs')?.textContent || '';
+            const desc = article.querySelector('p.text-sm, p.text-base')?.textContent || '';
+            const tags = Array.from(article.querySelectorAll('.proj-tag')).map(t => t.textContent);
+            const link = article.querySelector('a[href*="github"]');
+            const ghUrl = link ? link.href : '#';
+            const slides = Array.from(article.querySelectorAll('img.slide')).map(img => img.src);
+
+            // Build HTML
+            let slidesHtml = '';
+            if (slides.length) {
+                slidesHtml = `<div class="sheet-project-slideshow" id="sheetSlideshow">
+                    ${slides.map((s, i) => `<img src="${s}" alt="${title} slide ${i + 1}" class="${i === 0 ? 'opacity-100' : ''}">`).join('')}
+                </div>`;
+            }
+
+            contentEl.innerHTML = `
+                ${slidesHtml}
+                <div class="sheet-project-title">${title}</div>
+                <div class="sheet-project-date">${date}</div>
+                <div class="sheet-project-desc">${desc}</div>
+                <div class="sheet-project-tags">
+                    ${tags.map(t => `<span class="proj-tag">${t}</span>`).join('')}
+                </div>
+                <a href="${ghUrl}" target="_blank" rel="noopener" class="sheet-project-cta">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                    View on GitHub
+                </a>
+            `;
+
+            // Init slideshow in sheet
+            if (slides.length > 1 && !reduceMotion) {
+                const sheetSlides = contentEl.querySelectorAll('#sheetSlideshow img');
+                let sIdx = 0;
+                projectSheet._sheetInterval = setInterval(() => {
+                    sheetSlides[sIdx].classList.remove('opacity-100');
+                    sIdx = (sIdx + 1) % sheetSlides.length;
+                    sheetSlides[sIdx].classList.add('opacity-100');
+                }, 3500);
+            }
+
+            projectSheet.open();
+        }
+
+        // Attach tap handlers to project cards on mobile
+        function initProjectSheetTaps() {
+            document.querySelectorAll('#projects article').forEach(article => {
+                article.addEventListener('click', (e) => {
+                    // Only on mobile + coarse pointer, and not if they clicked a real link
+                    if (!isMobile() || !isCoarse()) return;
+                    if (e.target.closest('a')) return;
+                    e.preventDefault();
+                    openProjectSheet(article);
+                });
+            });
+        }
 
         // ---------- Typing effect ----------
         (function () {
@@ -769,7 +1007,7 @@
 
         // ---------- Active nav (scroll spy) ----------
         function initScrollSpy() {
-            const links = document.querySelectorAll('.nav-link[data-nav-link]');
+            const links = document.querySelectorAll('.nav-link[data-nav-link], #navSheet .sheet-nav-link[data-nav-link]');
             if (!('IntersectionObserver' in window)) return;
             const spy = new IntersectionObserver((entries) => {
                 entries.forEach(e => {
@@ -786,6 +1024,7 @@
             initSlideshows();
             initReveal();
             initScrollSpy();
+            initProjectSheetTaps();
         });
     </script>
 </body>

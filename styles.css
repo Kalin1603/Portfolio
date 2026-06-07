@@ -253,7 +253,7 @@ body::after {
   opacity: 0.9;
 }
 @media (max-width: 1023px) {
-  .meta-list { justify-items: center; display: inline-grid; text-align: left; }
+  .meta-list { justify-items: start; display: inline-grid; text-align: left; }
 }
 
 /* Photo: editorial offset double-frame — now larger and softer */
@@ -858,6 +858,320 @@ body::after {
   will-change: transform;
 }
 
+/* ============================================================
+   BOTTOM SHEET — reusable mobile-native overlay pattern
+   ============================================================ */
+.bottom-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  pointer-events: none;
+  transition: background 0.35s ease, backdrop-filter 0.35s ease,
+              -webkit-backdrop-filter 0.35s ease;
+}
+.bottom-sheet-overlay.open {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  pointer-events: auto;
+}
+
+.bottom-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 210;
+  max-height: 85vh;
+  max-height: 85dvh;
+  background: linear-gradient(180deg, rgba(14, 21, 38, 0.97) 0%, rgba(10, 15, 28, 0.99) 100%);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 1.25rem 1.25rem 0 0;
+  box-shadow: 0 -10px 50px rgba(0, 0, 0, 0.5),
+              0 -2px 20px rgba(0, 230, 230, 0.06);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  overflow: hidden;
+  will-change: transform;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.bottom-sheet.open {
+  transform: translateY(0);
+}
+/* When dragging, disable the CSS transition so JS controls position */
+.bottom-sheet.dragging {
+  transition: none;
+}
+
+.bottom-sheet-handle-area {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 4px;
+  cursor: grab;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.bottom-sheet-handle-area:active { cursor: grabbing; }
+
+.bottom-sheet-handle {
+  width: 40px;
+  height: 4px;
+  border-radius: 99px;
+  background: rgba(180, 200, 220, 0.3);
+  transition: background 0.2s ease, width 0.2s ease;
+}
+.bottom-sheet-handle-area:hover .bottom-sheet-handle {
+  background: var(--cyan-soft);
+  width: 52px;
+}
+
+.bottom-sheet-content {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 1.25rem 1.5rem;
+  max-height: calc(85vh - 40px);
+  max-height: calc(85dvh - 40px);
+}
+
+/* ============================================================
+   BOTTOM SHEET — Navigation variant
+   ============================================================ */
+.bottom-sheet-nav .bottom-sheet-content {
+  padding: 0.25rem 0 1rem;
+}
+.bottom-sheet-nav .sheet-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.95rem 1.5rem;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 1.05rem;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+  min-height: 48px;
+  -webkit-tap-highlight-color: transparent;
+}
+.bottom-sheet-nav .sheet-nav-link:active {
+  background: rgba(0, 230, 230, 0.06);
+}
+.bottom-sheet-nav .sheet-nav-link:hover {
+  color: var(--cyan-soft);
+  background: rgba(0, 230, 230, 0.04);
+  border-left-color: var(--cyan-soft);
+}
+.bottom-sheet-nav .sheet-nav-link svg {
+  width: 20px;
+  height: 20px;
+  color: var(--cyan-soft);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+.bottom-sheet-nav .sheet-nav-link.sheet-nav-cv {
+  color: var(--cyan-soft);
+  font-weight: 600;
+}
+.bottom-sheet-nav .sheet-nav-divider {
+  height: 1px;
+  margin: 0.4rem 1.25rem;
+  background: var(--line);
+}
+
+/* ============================================================
+   BOTTOM SHEET — Project detail variant
+   ============================================================ */
+.sheet-project-content { padding: 0; }
+
+.sheet-project-slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #0a0f1a;
+  border-radius: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.sheet-project-slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+.sheet-project-slideshow img.opacity-100 { opacity: 1; }
+
+.sheet-project-title {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cyan-soft);
+  margin-bottom: 0.15rem;
+}
+.sheet-project-date {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-bottom: 0.85rem;
+}
+.sheet-project-desc {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+.sheet-project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+.sheet-project-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--cyan-soft);
+  color: #04121a;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 0.6rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+}
+.sheet-project-cta:active {
+  transform: scale(0.97);
+  background: #a8e6e6;
+}
+.sheet-project-cta svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE IMPROVEMENTS
+   ============================================================ */
+
+/* -- Safe area insets -- */
+@supports (padding: env(safe-area-inset-bottom)) {
+  body { padding-bottom: env(safe-area-inset-bottom); }
+  nav#mainNav {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* -- Touch targets -- */
+@media (pointer: coarse) {
+  .nav-link { padding: 0.65rem 0.5rem; }
+  .tech-chip { padding: 0.55rem 0.95rem; min-height: 40px; }
+  .proj-tag { padding: 0.3rem 0.6rem; min-height: 28px; }
+  .slide-dot { width: 10px; height: 10px; }
+  .slide-dot.active { width: 24px; }
+  .cv-cta { padding: 1.1rem 2.4rem; min-height: 48px; }
+  .cv-link { padding: 0.5rem 0; min-height: 44px; display: inline-flex; align-items: center; }
+}
+
+/* -- Small screen refinements (< 640px / sm) -- */
+@media (max-width: 639px) {
+  /* Tighter section spacing */
+  main.container { padding-left: 1rem; padding-right: 1rem; }
+
+  /* Hero adjustments */
+  .hero-name { font-size: clamp(2.4rem, 14vw, 3.8rem); margin-bottom: 0.8rem; }
+  .photo-wrap { max-width: 320px; }
+  .photo-wrap::before { transform: translate(10px, 10px); }
+  .photo-wrap:hover::before { transform: translate(14px, 14px); }
+  .photo-wrap::after { width: 20px; height: 20px; top: -6px; left: -6px; }
+  .meta-list { font-size: 0.72rem; gap: 0.4rem; }
+  .meta-list li .k { min-width: 5.5rem; font-size: 0.65rem; }
+
+  /* Section titles */
+  .sec-head { margin-bottom: 1.5rem; }
+  .sec-title,
+  .sec-head .sec-title.neon-text-sub { font-size: clamp(1.7rem, 8vw, 2.5rem); }
+
+  /* Tech stack */
+  .marquee-track span { font-size: 0.85rem; padding: 0 0.8rem; }
+  .marquee-track span::after { margin-left: 1.6rem; }
+  .tech-cat-label { font-size: 0.65rem; margin-bottom: 0.25rem; }
+  .tech-chip { font-size: 0.78rem; padding: 0.4rem 0.7rem; gap: 0.4rem; }
+  .tech-chip i { font-size: 1rem; }
+  .tech-chip svg, .tech-chip img { width: 1rem; height: 1rem; }
+
+  /* Project cards — ensure slideshow visible */
+  #projects article .slideshow-container { aspect-ratio: 16 / 10; }
+
+  /* CV section */
+  .cv-section { padding: 2.5rem 1rem; }
+  .cv-title { font-size: clamp(1.8rem, 9vw, 2.8rem); }
+  .cv-icon svg { width: 52px; height: 52px; }
+  .cv-watermark { font-size: clamp(7rem, 28vw, 11rem); }
+  .cv-desc { font-size: 0.92rem; margin-bottom: 1.8rem; }
+
+  /* Footer */
+  footer .container { padding-top: 2rem; padding-bottom: 2rem; }
+}
+
+/* -- Extra small screen refinements (< 375px) -- */
+@media (max-width: 374px) {
+  .hero-name { font-size: 2.1rem; }
+  .meta-list li { flex-direction: column; gap: 0.15rem; }
+  .meta-list li .k { min-width: auto; }
+  .sec-title,
+  .sec-head .sec-title.neon-text-sub { font-size: 1.5rem; }
+  .tech-chip { font-size: 0.72rem; padding: 0.35rem 0.55rem; }
+  .cv-title { font-size: 1.6rem; }
+}
+
+/* -- Project cards: mobile tap hint on coarse pointer -- */
+@media (max-width: 767px) and (pointer: coarse) {
+  #projects article {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #projects article::after {
+    content: "Tap for details";
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    color: var(--cyan-soft);
+    opacity: 0.6;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    pointer-events: none;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(127, 214, 214, 0.2);
+    border-radius: 0.35rem;
+    background: rgba(10, 15, 28, 0.7);
+    z-index: 5;
+  }
+}
+
+/* -- Landscape phone tweaks -- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .bottom-sheet { max-height: 92vh; max-height: 92dvh; }
+  .bottom-sheet-content { max-height: calc(92vh - 40px); max-height: calc(92dvh - 40px); }
+  .hero-grid { gap: 1rem; }
+  header#home { padding-top: 2rem; padding-bottom: 2rem; }
+}
+
+/* -- Body scroll lock when sheet is open -- */
+body.sheet-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -878,4 +1192,6 @@ body::after {
   .cv-spotlight { display: none !important; }
   .cv-cta-wrap { transition: none !important; }
   .marquee-track { animation: none !important; }
+  .bottom-sheet { transition-duration: 0.001ms !important; }
+  .bottom-sheet-overlay { transition-duration: 0.001ms !important; }
 }
