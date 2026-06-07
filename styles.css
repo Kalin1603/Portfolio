@@ -789,6 +789,56 @@ body::after {
 .cv-link:hover { color: var(--cyan-soft); }
 .cv-link:hover::after { transform: scaleX(1); }
 
+/* ---------- CV: bouncing document icon ----------
+   Lives at the top of the CV card. Floats up-down with a tiny
+   sway, and pauses + tilts when you put the cursor on it. */
+.cv-icon {
+  display: inline-block;
+  color: var(--cyan-soft);
+  margin: 0 auto 1.5rem;
+  line-height: 0;
+  animation: cv-icon-float 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 10px 28px rgba(0, 230, 230, 0.22));
+  transition: transform 0.35s cubic-bezier(0.2, 0.85, 0.3, 1);
+  cursor: default;
+}
+.cv-icon svg { width: 68px; height: 68px; display: block; }
+.cv-icon:hover {
+  animation-play-state: paused;
+  transform: scale(1.12) rotate(-4deg);
+}
+@keyframes cv-icon-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25%      { transform: translateY(-6px) rotate(-1.8deg); }
+  50%      { transform: translateY(-12px) rotate(0deg); }
+  75%      { transform: translateY(-6px) rotate(1.8deg); }
+}
+
+/* Spotlight that tracks the cursor inside the CV card.
+   The position is driven by --mx / --my which JS updates. */
+.cv-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(
+    circle 320px at var(--mx, 50%) var(--my, 50%),
+    rgba(0, 230, 230, 0.13),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.cv-section:hover .cv-spotlight { opacity: 1; }
+
+/* Wrapper used by JS to apply a "magnetic" translate without
+   fighting the button's own hover transform. */
+.cv-cta-wrap {
+  display: inline-block;
+  transition: transform 0.18s cubic-bezier(0.2, 0.85, 0.3, 1);
+  will-change: transform;
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -805,5 +855,8 @@ body::after {
   #projects article.reveal { opacity: 1 !important; transform: none !important; }
   .cv-section .cv-scan { display: none; }
   .cv-section .cv-corner { opacity: 0.65 !important; }
+  .cv-icon { animation: none !important; }
+  .cv-spotlight { display: none !important; }
+  .cv-cta-wrap { transition: none !important; }
   .marquee-track { animation: none !important; }
 }
