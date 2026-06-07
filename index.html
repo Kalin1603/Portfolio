@@ -126,7 +126,7 @@
 
                 <!-- Left -->
                 <div class="text-center lg:text-left">
-                    <p class="kicker reveal mb-5">// portfolio &mdash; 2026</p>
+                    <p class="kicker reveal mb-5">// portfolio &mdash; 2025</p>
 
                     <h1 class="hero-name reveal">
                         <span class="fill neon-text-main">Kalin</span>
@@ -559,23 +559,34 @@
         <div class="divider"></div>
 
         <!-- ===================== CV ===================== -->
-        <section id="cv" class="reveal glass rounded-2xl shadow-xl my-10 overflow-hidden">
-            <div class="grid md:grid-cols-[1fr_auto] gap-8 items-center p-8 sm:p-12 md:p-16">
-                <div>
-                    <p class="kicker mb-4">// let's connect</p>
-                    <h2 class="sec-title neon-text-sub mb-5">Ready to dive deeper?</h2>
-                    <p class="text-base sm:text-lg text-gray-300 max-w-xl leading-relaxed">
-                        My CV lays out the detail behind the headlines &mdash; experience, projects, and the skills I
-                        bring to a team. Take a look, then let's build something.
-                    </p>
+        <section id="cv" class="cv-section reveal">
+            <span class="cv-watermark" aria-hidden="true">CV</span>
+            <span class="cv-scan" aria-hidden="true"></span>
+            <span class="cv-corner cv-corner-tl" aria-hidden="true"></span>
+            <span class="cv-corner cv-corner-tr" aria-hidden="true"></span>
+            <span class="cv-corner cv-corner-bl" aria-hidden="true"></span>
+            <span class="cv-corner cv-corner-br" aria-hidden="true"></span>
+            <div class="cv-inner">
+                <p class="kicker mb-5">// let's connect</p>
+                <h2 class="cv-title">
+                    Ready to <span class="cv-title-accent">Dive Deeper</span>
+                </h2>
+                <p class="cv-desc">
+                    My CV lays out the detail behind the headlines &mdash; experience, projects, and the skills I bring
+                    to a team. Take a look, then let's build something together.
+                </p>
+                <div class="cv-actions">
+                    <a href="CV.pdf" download class="cv-cta btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Download CV
+                        <span class="cv-cta-arrow">&rarr;</span>
+                    </a>
+                    <a href="mailto:kalintodorov03@gmail.com" class="cv-link">
+                        or email me directly
+                    </a>
                 </div>
-                <a href="CV.pdf" download
-                    class="btn-primary inline-flex items-center justify-center px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-gray-900 rounded-lg text-lg font-semibold shadow-lg hover:shadow-neon-cyan transition-all duration-300 transform hover:scale-105 group focus:outline-none focus:ring-4 focus:ring-cyan-300 whitespace-nowrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 mr-3 transform transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    Download CV
-                </a>
             </div>
         </section>
 
@@ -648,6 +659,7 @@
             const el = document.getElementById('typed');
             if (!el) return;
             const phrases = [
+                "Web & Software Developer",
                 "Full Stack Developer",
                 ".NET · ASP.NET Core · EF Core",
                 "Learning Java, Quarkus & Go"
